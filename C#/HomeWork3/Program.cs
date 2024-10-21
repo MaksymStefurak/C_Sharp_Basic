@@ -35,7 +35,7 @@
                     }
                     break;
                 default:
-                    Console.WriteLine("Unknown operatiom");
+                    Console.WriteLine("Unknown operation");
                     break;
             }
 
