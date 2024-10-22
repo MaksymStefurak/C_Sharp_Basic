@@ -25,7 +25,7 @@
         catch (FormatException)
         {
             
-            Console.WriteLine("\r\nError: Incorrect value entered. Enter the numbers.");
+            Console.WriteLine("Error: Incorrect value entered. Enter the numbers.");
         }
         catch (Exception ex)
         {
@@ -35,7 +35,7 @@
         finally
         {
             
-            Console.WriteLine("\r\nThe operation is complete.");
+            Console.WriteLine("The operation is complete.");
         }
     }
 }
