@@ -1,21 +1,22 @@
 ﻿// Task 12.1
-Console.WriteLine("Enter the number of Fibonacci: ");
-int number = int.Parse(Console.ReadLine()!);
+// Це ще не правильний варіант
+//Console.WriteLine("Enter the number of Fibonacci: ");
+//int number = int.Parse(Console.ReadLine()!);
 
-int result = NumberOfFibonacci.Fibonacci(number);
-Console.WriteLine($"Fibonacci number for {number}:{result}");
-public static class NumberOfFibonacci
-{
-    public static int Fibonacci(int number)
-    {
-        if (number == 0)
-            return 0;
-        if (number == 1)
-            return 1;
+//int result = NumberOfFibonacci.Fibonacci(number);
+//Console.WriteLine($"Fibonacci number for {number}:{result}");
+//public static class NumberOfFibonacci
+//{
+//    public static int Fibonacci(int number)
+//    {
+//        if (number == 0)
+//            return 0;
+//        if (number == 1)
+//            return 1;
 
-        return Fibonacci(number - 1) + Fibonacci(number - 2);
-    }
-}
+//        return Fibonacci(number - 1) + Fibonacci(number - 2);
+//    }
+//}
 
 
 // Task 13.1
