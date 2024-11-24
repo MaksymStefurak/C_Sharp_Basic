@@ -1,22 +1,49 @@
 ﻿// Task 12.1
-// Це ще не правильний варіант
-//Console.WriteLine("Enter the number of Fibonacci: ");
-//int number = int.Parse(Console.ReadLine()!);
+//Це вже правильний варіант
+while (true)
+{ 
+    Console.WriteLine("Enter the number of Fibonacci or type exit for finished: ");
+    string input = Console.ReadLine()!;
 
-//int result = NumberOfFibonacci.Fibonacci(number);
-//Console.WriteLine($"Fibonacci number for {number}:{result}");
-//public static class NumberOfFibonacci
-//{
-//    public static int Fibonacci(int number)
-//    {
-//        if (number == 0)
-//            return 0;
-//        if (number == 1)
-//            return 1;
+    if(input?.ToLower() == "exit")
+    {
+        break;
+    }
 
-//        return Fibonacci(number - 1) + Fibonacci(number - 2);
-//    }
-//}
+    if (int.TryParse(input, out int number))
+    {
+        try
+        {
+            int result = NumberOfFibonacci.Fibonacci(number);
+            Console.WriteLine($"Fibonacci number for {number}:{result}");
+        }
+        catch(ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+    else
+    {
+        Console.WriteLine("Type corect number");
+    }   
+}
+public static class NumberOfFibonacci
+{
+    public static int Fibonacci(int number)
+    {
+        if(number <= 0)
+        {
+            throw new ArgumentException("Number must be positive");
+        }
+
+        if (number == 1)
+            return 0;
+        if (number == 2)
+            return 1;
+
+        return Fibonacci(number - 1) + Fibonacci(number - 2);
+    }
+}
 
 
 // Task 13.1
@@ -51,7 +78,7 @@ while (true)
         case "5":
             Console.WriteLine("Program finished");
             return;
-            default:
+        default:
             Console.WriteLine("Eror of choise, try again");
             break;
     }
@@ -69,7 +96,7 @@ static void ViewTasks(List<string> todoList, List<bool> performList)
         for (int i = 0; i < todoList.Count; i++)
         {
             string status = performList[i] ? "Compled" : "Not compled";
-            Console.WriteLine($"{i+1}: {todoList[i]} {status}");
+            Console.WriteLine($"{i + 1}: {todoList[i]} {status}");
         }
     }
 }
@@ -78,7 +105,7 @@ static void AddTask(List<string> todoList, List<bool> performList)
 {
     Console.WriteLine("Add a new case:");
     string newCase = Console.ReadLine()!;
-    if(!string.IsNullOrEmpty(newCase))
+    if (!string.IsNullOrEmpty(newCase))
     {
         todoList.Add(newCase);
         performList.Add(false);
@@ -95,7 +122,7 @@ static void PerformanceTasks(List<string> todoList, List<bool> performList)
     if (todoList.Count == 0)
     {
         Console.WriteLine("The to-do list is empty");
-        return ;
+        return;
     }
 
     Console.WriteLine("What case you are wanna perform?: ");
@@ -123,7 +150,7 @@ static void RemoveTask(List<string> todoList, List<bool> performList)
     Console.WriteLine("Enter number of case you are wanna remove: ");
     ViewTasks(todoList, performList);
 
-    if(int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= todoList.Count)
+    if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= todoList.Count)
     {
         todoList.RemoveAt(index - 1);
         performList.RemoveAt(index - 1);
@@ -132,6 +159,6 @@ static void RemoveTask(List<string> todoList, List<bool> performList)
     else
     {
         Console.WriteLine("Incorect number try again");
-    } 
+    }
 }
 
