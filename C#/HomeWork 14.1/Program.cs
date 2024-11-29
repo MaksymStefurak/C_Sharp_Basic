@@ -12,10 +12,12 @@ Console.WriteLine(heikkisAccount.Withdrawal(100.00));
 Console.WriteLine("The balance of Heikki's account is now: " + heikkisAccount.TotalAmountOfAccount);
 
 Console.WriteLine(heikkisAccount.Withdrawal(-10.00));
+
 internal class Account
 {
-    public string NameOfAccount = "Unknown";
-    public double TotalAmountOfAccount = 0;
+    public string NameOfAccount { get; private set; }
+    public double TotalAmountOfAccount { get; private set; }
+
     public Account(string nameOfAccount, double totalAmountOfAccount)
     {
         NameOfAccount = nameOfAccount;
